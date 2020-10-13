@@ -1,6 +1,7 @@
 # Focal Loss for Dense Object Detection in PyTorch
 
 ## Focal Loss 식
+
 ![focal loss](images/Focal Loss Equation.png)
 
 ![focal loss](images/focal_loss.png)
