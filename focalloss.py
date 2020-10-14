@@ -3,9 +3,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 
-class FocalLoss(nn.Module):
+class FocalLoss(nn.Module): #nn.Module class를 상속함
+    
     def __init__(self, gamma=0, alpha=None, size_average=True):
         super(FocalLoss, self).__init__()
+        
         self.gamma = gamma
         self.alpha = alpha
         if isinstance(alpha,(float,int,long)): self.alpha = torch.Tensor([alpha,1-alpha])
@@ -31,5 +33,9 @@ class FocalLoss(nn.Module):
             logpt = logpt * Variable(at)
 
         loss = -1 * (1-pt)**self.gamma * logpt
-        if self.size_average: return loss.mean()
-        else: return loss.sum()
+        
+        if self.size_average: 
+            return loss.mean()
+        
+        else: 
+            return loss.sum()
